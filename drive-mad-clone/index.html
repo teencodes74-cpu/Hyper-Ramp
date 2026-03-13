@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drive Mad Clone</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js" defer></script>
+  <script type="module" src="./main.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <canvas id="gameCanvas" width="1280" height="720" aria-label="Drive Mad game canvas"></canvas>
+
+    <section id="menuScreen" class="screen visible">
+      <h1>Drive Mad Clone</h1>
+      <div class="menu-buttons">
+        <button id="playBtn">Play</button>
+        <button id="levelSelectBtn">Level Select</button>
+        <button id="levelEditorBtn">Level Editor</button>
+        <button id="resetProgressBtn" class="danger">Reset Progress</button>
+      </div>
+    </section>
+
+    <section id="hud" class="screen hud hidden">
+      <div>Level: <span id="hudLevel">1</span></div>
+      <div>Time: <span id="hudTimer">0.00</span>s</div>
+      <div>Attempts: <span id="hudAttempts">0</span></div>
+      <div>Vehicle: <span id="hudVehicle">Starter Car</span></div>
+      <button id="restartBtn">Restart (R)</button>
+      <button id="backToMenuBtn">Menu</button>
+    </section>
+
+    <section id="levelSelectScreen" class="screen hidden">
+      <h2>Select Level</h2>
+      <div id="levelGrid" class="level-grid"></div>
+      <button id="closeLevelSelect">Back</button>
+    </section>
+
+    <section id="levelEditorScreen" class="screen hidden">
+      <h2>Level Editor</h2>
+      <div class="editor-controls">
+        <label>Tool
+          <select id="editorTool">
+            <option value="ramp">Ramp</option>
+            <option value="platform">Platform</option>
+            <option value="obstacle">Obstacle</option>
+          </select>
+        </label>
+        <button id="editorSaveBtn">Save Custom Level</button>
+        <button id="editorExportBtn">Export JSON</button>
+        <button id="editorClearBtn">Clear</button>
+        <button id="closeEditorBtn">Back</button>
+      </div>
+      <p>Click canvas to place object at cursor.</p>
+    </section>
+  </div>
+</body>
+</html>
